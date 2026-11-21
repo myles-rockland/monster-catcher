@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="MenuStateData" format=3 uid="uid://6cqo0w01maif"]
+
+[ext_resource type="Script" uid="uid://pjrxbln3otvu" path="res://scripts/data/MenuStateData.cs" id="1_2e4n0"]
+
+[resource]
+script = ExtResource("1_2e4n0")
+StateName = "Swap"
+metadata/_custom_type_script = "uid://pjrxbln3otvu"

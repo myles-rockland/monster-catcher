@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://eusj7xqpo1k4"]
+
+[ext_resource type="Resource" uid="uid://dady7tx36e740" path="res://data/attack/attack_claw.tres" id="1_ylj8d"]
+[ext_resource type="Resource" uid="uid://b45e30lvhakt7" path="res://data/attack/attack_fire.tres" id="2_1851d"]
+[ext_resource type="Resource" uid="uid://duv4osrpbfs5r" path="res://data/attack/attack_heal.tres" id="3_b1vnd"]
+[ext_resource type="Resource" uid="uid://dtdib35retxv0" path="res://data/attack/attack_explosion.tres" id="4_dn8th"]
+[ext_resource type="Resource" uid="uid://lpc17qf6hdxj" path="res://data/element/element_water.tres" id="5_ylj8d"]
+[ext_resource type="Script" uid="uid://cexfd8ltm16i1" path="res://scripts/data/MonsterStats.cs" id="6_6thfm"]
+[ext_resource type="Script" uid="uid://cj1klsedu5df6" path="res://scripts/data/MonsterData.cs" id="7_usiuj"]
+
+[sub_resource type="Resource" id="Resource_4wx4l"]
+script = ExtResource("6_6thfm")
+MaxHP = 9
+MaxEP = 8.0
+Speed = 0.8
+metadata/_custom_type_script = "uid://cexfd8ltm16i1"
+
+[resource]
+script = ExtResource("7_usiuj")
+MonsterName = "Gulfin"
+BattleTexture = "uid://b3brga1o52701"
+IconTexture = "uid://cqoh4732kmvo7"
+Stats = SubResource("Resource_4wx4l")
+Attacks = Dictionary[int, Object]({
+0: ExtResource("1_ylj8d"),
+12: ExtResource("2_1851d"),
+24: ExtResource("3_b1vnd"),
+30: ExtResource("4_dn8th")
+})
+Element = ExtResource("5_ylj8d")
+metadata/_custom_type_script = "uid://cj1klsedu5df6"

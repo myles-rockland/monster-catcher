@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="IntReference" format=3 uid="uid://blf2sjjhk5f5r"]
+
+[ext_resource type="Script" uid="uid://cmhytncdxb1uc" path="res://scripts/value_reference/IntReference.cs" id="1_qu68h"]
+
+[resource]
+script = ExtResource("1_qu68h")
+Value = 6
+metadata/_custom_type_script = "uid://cmhytncdxb1uc"

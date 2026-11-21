@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ElementData" format=3 uid="uid://o6vvf08kauoo"]
+
+[ext_resource type="Script" uid="uid://gicd32cvq7uw" path="res://scripts/data/ElementData.cs" id="1_8s8d6"]
+[ext_resource type="Resource" uid="uid://lpc17qf6hdxj" path="res://data/element/element_water.tres" id="1_s7l7i"]
+[ext_resource type="Resource" uid="uid://c34ymk7dbrjk6" path="res://data/element/element_plant.tres" id="2_k8qlu"]
+
+[resource]
+script = ExtResource("1_8s8d6")
+ElementName = "Fire"
+ModifierAgainstElement = Dictionary[Object, float]({
+ExtResource("1_s7l7i"): 0.5,
+ExtResource("2_k8qlu"): 2.0
+})
+metadata/_custom_type_script = "uid://gicd32cvq7uw"

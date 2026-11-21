@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://dtdib35retxv0"]
+
+[ext_resource type="Resource" uid="uid://o6vvf08kauoo" path="res://data/element/element_fire.tres" id="1_juqqf"]
+[ext_resource type="Script" uid="uid://o50khsg63sy4" path="res://scripts/data/AttackData.cs" id="2_6epen"]
+
+[resource]
+script = ExtResource("2_6epen")
+AttackName = "Explode"
+IsOffensive = true
+Cost = 20
+Amount = 100
+Element = ExtResource("1_juqqf")
+Texture = "uid://571kj8j1uw6v"
+metadata/_custom_type_script = "uid://o50khsg63sy4"

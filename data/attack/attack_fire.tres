@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://b45e30lvhakt7"]
+
+[ext_resource type="Resource" uid="uid://o6vvf08kauoo" path="res://data/element/element_fire.tres" id="1_aukta"]
+[ext_resource type="Script" uid="uid://o50khsg63sy4" path="res://scripts/data/AttackData.cs" id="2_5hte4"]
+
+[resource]
+script = ExtResource("2_5hte4")
+AttackName = "Fire"
+IsOffensive = true
+Cost = 12
+Amount = 15
+Element = ExtResource("1_aukta")
+Texture = "uid://d37jirc8uecoa"
+metadata/_custom_type_script = "uid://o50khsg63sy4"

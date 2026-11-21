@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://bkxkh6ref0iuv"]
+
+[ext_resource type="Resource" uid="uid://dady7tx36e740" path="res://data/attack/attack_claw.tres" id="1_kgtms"]
+[ext_resource type="Resource" uid="uid://b45e30lvhakt7" path="res://data/attack/attack_fire.tres" id="2_i7sgj"]
+[ext_resource type="Resource" uid="uid://duv4osrpbfs5r" path="res://data/attack/attack_heal.tres" id="3_23fub"]
+[ext_resource type="Resource" uid="uid://dtdib35retxv0" path="res://data/attack/attack_explosion.tres" id="4_i0isj"]
+[ext_resource type="Resource" uid="uid://o6vvf08kauoo" path="res://data/element/element_fire.tres" id="5_lea6l"]
+[ext_resource type="Script" uid="uid://cexfd8ltm16i1" path="res://scripts/data/MonsterStats.cs" id="6_shj3e"]
+[ext_resource type="Script" uid="uid://cj1klsedu5df6" path="res://scripts/data/MonsterData.cs" id="7_d7cgn"]
+
+[sub_resource type="Resource" id="Resource_4wx4l"]
+script = ExtResource("6_shj3e")
+MaxHP = 17
+MaxEP = 12.0
+Speed = 1.0
+metadata/_custom_type_script = "uid://cexfd8ltm16i1"
+
+[resource]
+script = ExtResource("7_d7cgn")
+MonsterName = "Cindrill"
+BattleTexture = "uid://c2dsf55b5c3er"
+IconTexture = "uid://depoohrccuwom"
+Stats = SubResource("Resource_4wx4l")
+Attacks = Dictionary[int, Object]({
+0: ExtResource("1_kgtms"),
+12: ExtResource("2_i7sgj"),
+24: ExtResource("3_23fub"),
+30: ExtResource("4_i0isj")
+})
+Element = ExtResource("5_lea6l")
+metadata/_custom_type_script = "uid://cj1klsedu5df6"

@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://bnkywlfd0rbuf"]
+
+[ext_resource type="Resource" uid="uid://dady7tx36e740" path="res://data/attack/attack_claw.tres" id="1_yfsu2"]
+[ext_resource type="Resource" uid="uid://b45e30lvhakt7" path="res://data/attack/attack_fire.tres" id="2_f3ta0"]
+[ext_resource type="Resource" uid="uid://duv4osrpbfs5r" path="res://data/attack/attack_heal.tres" id="3_jajfg"]
+[ext_resource type="Resource" uid="uid://dtdib35retxv0" path="res://data/attack/attack_explosion.tres" id="4_vyund"]
+[ext_resource type="Resource" uid="uid://o6vvf08kauoo" path="res://data/element/element_fire.tres" id="5_ypend"]
+[ext_resource type="Script" uid="uid://cexfd8ltm16i1" path="res://scripts/data/MonsterStats.cs" id="6_6t5h4"]
+[ext_resource type="Script" uid="uid://cj1klsedu5df6" path="res://scripts/data/MonsterData.cs" id="7_oveya"]
+
+[sub_resource type="Resource" id="Resource_4wx4l"]
+script = ExtResource("6_6t5h4")
+MaxHP = 14
+MaxEP = 2.0
+Speed = 1.0
+metadata/_custom_type_script = "uid://cexfd8ltm16i1"
+
+[resource]
+script = ExtResource("7_oveya")
+MonsterName = "Sparchu"
+BattleTexture = "uid://c5hulwjx5q0fo"
+IconTexture = "uid://6t3ry42illhv"
+Stats = SubResource("Resource_4wx4l")
+Attacks = Dictionary[int, Object]({
+0: ExtResource("1_yfsu2"),
+12: ExtResource("2_f3ta0"),
+24: ExtResource("3_jajfg"),
+30: ExtResource("4_vyund")
+})
+Element = ExtResource("5_ypend")
+metadata/_custom_type_script = "uid://cj1klsedu5df6"

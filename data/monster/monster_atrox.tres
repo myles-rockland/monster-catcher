@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://c6ktiv1gu3d47"]
+
+[ext_resource type="Resource" uid="uid://dady7tx36e740" path="res://data/attack/attack_claw.tres" id="1_yq7et"]
+[ext_resource type="Resource" uid="uid://b45e30lvhakt7" path="res://data/attack/attack_fire.tres" id="2_jglb4"]
+[ext_resource type="Resource" uid="uid://duv4osrpbfs5r" path="res://data/attack/attack_heal.tres" id="3_py45q"]
+[ext_resource type="Resource" uid="uid://dtdib35retxv0" path="res://data/attack/attack_explosion.tres" id="4_jlbft"]
+[ext_resource type="Resource" uid="uid://o6vvf08kauoo" path="res://data/element/element_fire.tres" id="5_kkiou"]
+[ext_resource type="Script" uid="uid://cexfd8ltm16i1" path="res://scripts/data/MonsterStats.cs" id="6_iygam"]
+[ext_resource type="Script" uid="uid://cj1klsedu5df6" path="res://scripts/data/MonsterData.cs" id="7_uyinv"]
+
+[sub_resource type="Resource" id="Resource_4wx4l"]
+script = ExtResource("6_iygam")
+MaxHP = 12
+MaxEP = 8.0
+Speed = 2.0
+metadata/_custom_type_script = "uid://cexfd8ltm16i1"
+
+[resource]
+script = ExtResource("7_uyinv")
+MonsterName = "Atrox"
+BattleTexture = "uid://cyqsyl6yp7fnn"
+IconTexture = "uid://dvqa4eu0mbmub"
+Stats = SubResource("Resource_4wx4l")
+Attacks = Dictionary[int, Object]({
+0: ExtResource("1_yq7et"),
+12: ExtResource("2_jglb4"),
+24: ExtResource("3_py45q"),
+30: ExtResource("4_jlbft")
+})
+Element = ExtResource("5_kkiou")
+metadata/_custom_type_script = "uid://cj1klsedu5df6"

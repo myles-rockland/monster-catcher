@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://blh3do83accah"]
+
+[ext_resource type="Resource" uid="uid://lpc17qf6hdxj" path="res://data/element/element_water.tres" id="1_bx4bs"]
+[ext_resource type="Script" uid="uid://o50khsg63sy4" path="res://scripts/data/AttackData.cs" id="2_4k42w"]
+
+[resource]
+script = ExtResource("2_4k42w")
+AttackName = "Splash"
+IsOffensive = true
+Cost = 9
+Amount = 11
+Element = ExtResource("1_bx4bs")
+Texture = "uid://cfs5a2j88bk45"
+metadata/_custom_type_script = "uid://o50khsg63sy4"

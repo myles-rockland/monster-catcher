@@ -14,8 +14,9 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="Monster Collector Overworld"
-config/features=PackedStringArray("4.7", "Forward Plus")
+config/name="Monster Catcher"
+run/main_scene="uid://cldbw862ndpmv"
+config/features=PackedStringArray("4.7", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -29,7 +30,7 @@ window/size/viewport_height=720
 
 [dotnet]
 
-project/assembly_name="Monster Collector Overworld"
+project/assembly_name="Monster Catcher"
 
 [input]
 

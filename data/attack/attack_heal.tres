@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://duv4osrpbfs5r"]
+
+[ext_resource type="Resource" uid="uid://c34ymk7dbrjk6" path="res://data/element/element_plant.tres" id="1_syvno"]
+[ext_resource type="Script" uid="uid://o50khsg63sy4" path="res://scripts/data/AttackData.cs" id="2_xlkqg"]
+
+[resource]
+script = ExtResource("2_xlkqg")
+AttackName = "Heal"
+Cost = 15
+Amount = -30
+Element = ExtResource("1_syvno")
+Texture = "uid://dlsf5vm8jhpdf"
+metadata/_custom_type_script = "uid://o50khsg63sy4"

@@ -39,4 +39,9 @@ public partial class StateMachine : Node
     {
         currentState.Update(delta);
     }
+
+    public override void _PhysicsProcess(double delta)
+    {
+        currentState.PhysicsUpdate(delta);
+    }
 }

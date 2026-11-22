@@ -18,3 +18,9 @@ zoom = Vector2(3, 3)
 
 [node name="ViewRayCast" parent="." index="4" unique_id=1014297520]
 collision_mask = 4
+
+[node name="StateMachine" type="Node" parent="." index="5" unique_id=874803923]
+
+[node name="Idle" type="Node" parent="StateMachine" index="0" unique_id=1085064434]
+
+[node name="Walking" type="Node" parent="StateMachine" index="1" unique_id=134796865]

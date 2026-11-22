@@ -22,5 +22,7 @@ public abstract partial class State : Node
         timeSinceEntry = (float)Time.GetUnixTimeFromSystem() - entryTime;
     }
 
+    public virtual void PhysicsUpdate(double delta) { }
+
     public virtual void Exit() { }
 }

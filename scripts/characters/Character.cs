@@ -30,15 +30,8 @@ public partial class Character : CharacterBody2D
         Velocity = movingDirection * MoveSpeed;
         MoveAndSlide();
     }
-
-    protected void Animate()
-    {
-        var state = (movingDirection == default) ? "idle_" : "walk_";
-
-        var animationToPlay = state + directionToString[facingDirection];
-        if (AnimationPlayer.CurrentAnimation != animationToPlay)
-            AnimationPlayer.Play(animationToPlay);
-    } protected Vector2I GetDirectionToCharacter(Character character)
+    
+    protected Vector2I GetDirectionToCharacter(Character character)
     {
         var directionFromMeToCharacter = (character.Position - Position).Normalized();
         return new Vector2I(Mathf.RoundToInt(directionFromMeToCharacter.X), 

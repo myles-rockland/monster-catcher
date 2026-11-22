@@ -15,9 +15,11 @@ public partial class IdlePlayerState : PlayerState
         base.Update(delta);
 
         Player.movingDirection = Input.GetVector("left", "right", "up", "down");
-        if (Player.movingDirection != default)
+
+        if (Player.movingDirection != Vector2.Zero)
         {
             StateMachine.ChangeState("Movement");
+            return;
         }
     }
 }

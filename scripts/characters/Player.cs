@@ -8,7 +8,6 @@ public partial class Player : Character
     {
         GetInput();
         Move();
-        Animate();
     }
 
     private void GetInput()

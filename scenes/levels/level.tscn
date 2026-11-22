@@ -1,9 +1,7 @@
 [gd_scene format=4 uid="uid://cldbw862ndpmv"]
 
 [ext_resource type="Texture2D" uid="uid://bgjjixxvy05yy" path="res://graphics/tileset/overworld.png" id="1_bovvr"]
-[ext_resource type="PackedScene" uid="uid://cv1rsvcb3ydfm" path="res://scenes/characters/trainer.tscn" id="2_b2cq8"]
 [ext_resource type="PackedScene" uid="uid://dihipy7rljqkv" path="res://scenes/characters/player.tscn" id="2_bovvr"]
-[ext_resource type="Texture2D" uid="uid://cu326e7foiycv" path="res://graphics/characters/green.png" id="3_xb4v1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b2cq8"]
 texture = ExtResource("1_bovvr")
@@ -226,13 +224,4 @@ y_sort_enabled = true
 [node name="Characters" type="Node2D" parent="Objects" unique_id=167590695]
 y_sort_enabled = true
 
-[node name="Trainer" parent="Objects/Characters" unique_id=1058294713 node_paths=PackedStringArray("Player") instance=ExtResource("2_b2cq8")]
-position = Vector2(107, 23)
-Player = NodePath("../Player")
-
-[node name="Sprite2D" parent="Objects/Characters/Trainer" index="0" unique_id=1510051939]
-texture = ExtResource("3_xb4v1")
-
 [node name="Player" parent="Objects/Characters" unique_id=954752412 instance=ExtResource("2_bovvr")]
-
-[editable path="Objects/Characters/Trainer"]

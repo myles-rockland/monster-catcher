@@ -5,6 +5,7 @@ using System.Collections.Generic;
 [GlobalClass]
 public partial class Character : CharacterBody2D
 {
+    [Export] public StateMachine StateMachine { get; set; }
     [Export] public AnimationPlayer AnimationPlayer { get; set; }
     [Export] public RayCast2D ViewRayCast { get; set; }
     [Export] public float MoveSpeed { get; set; } = 60;
@@ -25,16 +26,26 @@ public partial class Character : CharacterBody2D
         { new Vector2I(-1, -1), "left" },
     };
 
-    protected void Move()
+    public override void _Process(double delta)
     {
-        Velocity = movingDirection * MoveSpeed;
-        MoveAndSlide();
+        StateMachine.Update(delta);
     }
-    
-    protected Vector2I GetDirectionToCharacter(Character character)
+
+    public override void _PhysicsProcess(double delta)
     {
-        var directionFromMeToCharacter = (character.Position - Position).Normalized();
-        return new Vector2I(Mathf.RoundToInt(directionFromMeToCharacter.X), 
-            Mathf.RoundToInt(directionFromMeToCharacter.Y));
+        StateMachine.PhysicsUpdate(delta);
     }
+
+    //protected void Move()
+    //{
+    //    Velocity = movingDirection * MoveSpeed;
+    //    MoveAndSlide();
+    //}
+
+    //protected Vector2I GetDirectionToCharacter(Character character)
+    //{
+    //    var directionFromMeToCharacter = (character.Position - Position).Normalized();
+    //    return new Vector2I(Mathf.RoundToInt(directionFromMeToCharacter.X), 
+    //        Mathf.RoundToInt(directionFromMeToCharacter.Y));
+    //}
 }

@@ -1,13 +1,17 @@
 using Godot;
 
+[GlobalClass]
 public partial class MovementPlayerState : PlayerState
 {
+    [Export] public IdlePlayerState IdlePlayerState { get; set; }
+
     public override void Enter()
     {
         base.Enter();
 
-        var animationToPlay = "walk_" + Player.directionToString[Player.facingDirection];
-        Player.AnimationPlayer.Play(animationToPlay);
+        Player.movingDirection = Input.GetVector("left", "right", "up", "down");
+        UpdateFacingDirection();
+        UpdateAnimation();
     }
 
     public override void Update(double delta)
@@ -24,7 +28,7 @@ public partial class MovementPlayerState : PlayerState
 
         if (Player.movingDirection == Vector2.Zero)
         {
-            StateMachine.ChangeState("Idle");
+            StateMachine.ChangeState(IdlePlayerState);
             return;
         }
     }

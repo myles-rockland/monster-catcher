@@ -9,25 +9,26 @@ public partial class Trainer : Character
 
     protected static Character characterLookingAtPlayer;
 
-    public override void _Process(double delta)
-    {
-        if (ViewRayCast.GetCollider() is Player && characterLookingAtPlayer == null)
-        {
-            characterLookingAtPlayer = this;
-            WalkWaitTimer.Start();
-        }
+    //public override void _Process(double delta)
+    //{
+    //    if (ViewRayCast.GetCollider() is Player && characterLookingAtPlayer == null)
+    //    {
+    //        characterLookingAtPlayer = this;
+    //        WalkWaitTimer.Start();
+    //    }
 
-        Animate();
+    //    Animate();
 
-        if (movingDirection != default)
-        {
-            if (Position.DistanceTo(Player.Position) < StopRadius)
-            {
-                movingDirection = Vector2.Zero;
-            }
-            Move();
-        }
-    }
+    //    if (movingDirection != default)
+    //    {
+    //        if (Position.DistanceTo(Player.Position) < StopRadius)
+    //        {
+    //            movingDirection = Vector2.Zero;
+    //        }
+    //        Move();
+    //    }
+    //}
+
     private void OnWatchTimerTimeout()
     {
         facingDirection = new Godot.Collections.Array<Vector2I>() { 
@@ -42,7 +43,7 @@ public partial class Trainer : Character
 
     private void OnWalkWaitTimerTimeout()
     {
-        movingDirection = GetDirectionToCharacter(Player);
+        //movingDirection = GetDirectionToCharacter(Player);
         GD.Print($"WaitWaitTimerTimeout: Direction is {movingDirection}");
     }
 }

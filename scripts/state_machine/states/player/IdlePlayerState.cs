@@ -1,7 +1,10 @@
 using Godot;
 
+[GlobalClass]
 public partial class IdlePlayerState : PlayerState
 {
+    [Export] public MovementPlayerState MovementPlayerState { get; set; }
+
     public override void Enter()
     {
         base.Enter();
@@ -18,7 +21,7 @@ public partial class IdlePlayerState : PlayerState
 
         if (Player.movingDirection != Vector2.Zero)
         {
-            StateMachine.ChangeState("Movement");
+            StateMachine.ChangeState(MovementPlayerState);
             return;
         }
     }

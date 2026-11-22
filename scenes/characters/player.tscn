@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://j0od3fxqhxyq" path="res://scenes/characters/character.tscn" id="1_xwt18"]
 [ext_resource type="Script" uid="uid://tiaa6oy2i3fx" path="res://scripts/characters/Player.cs" id="2_y7cse"]
 [ext_resource type="Texture2D" uid="uid://d320vyp5pyo50" path="res://graphics/characters/player.png" id="4_7xbc7"]
+[ext_resource type="Script" uid="uid://b05tvmuks3d4o" path="res://scripts/state_machine/states/player/IdlePlayerState.cs" id="4_dyp2m"]
+[ext_resource type="Script" uid="uid://bwtlvwudvq7u8" path="res://scripts/state_machine/states/player/MovementPlayerState.cs" id="5_atpat"]
 
 [node name="Player" unique_id=1058294713 instance=ExtResource("1_xwt18")]
 collision_layer = 2
@@ -10,17 +12,24 @@ collision_mask = 5
 script = ExtResource("2_y7cse")
 ViewDistance = 20.0
 
-[node name="Sprite2D" parent="." index="0" unique_id=1510051939]
-texture = ExtResource("4_7xbc7")
-
-[node name="Camera2D" type="Camera2D" parent="." index="2" unique_id=1613719973]
+[node name="Camera2D" type="Camera2D" parent="." index="0" unique_id=1613719973]
 zoom = Vector2(3, 3)
+
+[node name="Sprite2D" parent="." index="1" unique_id=1510051939]
+texture = ExtResource("4_7xbc7")
 
 [node name="ViewRayCast" parent="." index="4" unique_id=1014297520]
 collision_mask = 4
 
-[node name="StateMachine" type="Node" parent="." index="5" unique_id=874803923]
+[node name="StateMachine" parent="." index="5" unique_id=1732587208 node_paths=PackedStringArray("StartingState")]
+StartingState = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="StateMachine" index="0" unique_id=1085064434]
+[node name="Idle" type="Node" parent="StateMachine" index="0" unique_id=1085064434 node_paths=PackedStringArray("MovementPlayerState", "Player")]
+script = ExtResource("4_dyp2m")
+MovementPlayerState = NodePath("../Movement")
+Player = NodePath("../..")
 
-[node name="Walking" type="Node" parent="StateMachine" index="1" unique_id=134796865]
+[node name="Movement" type="Node" parent="StateMachine" index="1" unique_id=134796865 node_paths=PackedStringArray("IdlePlayerState", "Player")]
+script = ExtResource("5_atpat")
+IdlePlayerState = NodePath("../Idle")
+Player = NodePath("../..")

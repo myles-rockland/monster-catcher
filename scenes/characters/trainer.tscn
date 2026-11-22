@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cv1rsvcb3ydfm"]
 
 [ext_resource type="PackedScene" uid="uid://j0od3fxqhxyq" path="res://scenes/characters/character.tscn" id="1_nlber"]
-[ext_resource type="Script" uid="uid://c0eevpd6iqcss" path="res://scenes/characters/Trainer.cs" id="2_7ugo5"]
+[ext_resource type="Script" uid="uid://c0eevpd6iqcss" path="res://scripts/characters/Trainer.cs" id="2_7ugo5"]
 
 [node name="Trainer" unique_id=1058294713 node_paths=PackedStringArray("WalkWaitTimer") instance=ExtResource("1_nlber")]
 collision_layer = 4

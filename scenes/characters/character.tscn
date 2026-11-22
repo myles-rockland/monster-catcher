@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b83bv7l6i32f4" path="res://scripts/characters/Character.cs" id="1_1bdar"]
 [ext_resource type="Texture2D" uid="uid://w282b80xyc2s" path="res://graphics/characters/character.png" id="1_x31xa"]
+[ext_resource type="Script" uid="uid://dh0kf0v24dumj" path="res://scripts/state_machine/StateMachine.cs" id="3_e22cc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gvo7x"]
 radius = 5.0
@@ -147,8 +148,9 @@ _data = {
 &"walk_up": SubResource("Animation_3mlnx")
 }
 
-[node name="Character" type="CharacterBody2D" unique_id=1058294713 node_paths=PackedStringArray("AnimationPlayer", "ViewRayCast")]
+[node name="Character" type="CharacterBody2D" unique_id=1058294713 node_paths=PackedStringArray("StateMachine", "AnimationPlayer", "ViewRayCast")]
 script = ExtResource("1_1bdar")
+StateMachine = NodePath("StateMachine")
 AnimationPlayer = NodePath("AnimationPlayer")
 ViewRayCast = NodePath("ViewRayCast")
 
@@ -164,3 +166,7 @@ shape = SubResource("CapsuleShape2D_gvo7x")
 libraries/ = SubResource("AnimationLibrary_oqd6d")
 
 [node name="ViewRayCast" type="RayCast2D" parent="." unique_id=1014297520]
+
+[node name="StateMachine" type="Node" parent="." unique_id=1732587208]
+script = ExtResource("3_e22cc")
+metadata/_custom_type_script = "uid://dh0kf0v24dumj"

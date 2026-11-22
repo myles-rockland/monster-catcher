@@ -2,12 +2,12 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
+[GlobalClass]
 public partial class StateMachine : Node
 {
     [Export] public State StartingState { get; set; }
 
     private State currentState;
-    private Dictionary<string, State> states = new();
 
     public override void _Ready()
     {
@@ -17,30 +17,29 @@ public partial class StateMachine : Node
                 continue;
 
             state.StateMachine = this;
-            states[state.Name] = state;
         }
 
-        ChangeState(StartingState.Name);
+        ChangeState(StartingState);
     }
 
-    public void ChangeState(string newState)
+    public void ChangeState(State newState)
     {
         if (currentState != null)
         {
             currentState.Exit();
         }
 
-        currentState = states[newState];
+        currentState = newState;
 
         currentState.Enter();
     }
 
-    public override void _Process(double delta)
+    public void Update(double delta)
     {
         currentState.Update(delta);
     }
 
-    public override void _PhysicsProcess(double delta)
+    public void PhysicsUpdate(double delta)
     {
         currentState.PhysicsUpdate(delta);
     }

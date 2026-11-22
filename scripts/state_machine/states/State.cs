@@ -2,7 +2,7 @@ using Godot;
 
 public abstract partial class State : Node
 {
-    [Export] public StateMachine StateMachine { get; set; }
+    public StateMachine StateMachine { get; set; }
 
     protected float timeSinceEntry = 0.0f;
     protected float entryTime = 0.0f;

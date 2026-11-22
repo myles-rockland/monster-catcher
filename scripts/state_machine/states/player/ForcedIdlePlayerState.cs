@@ -1,3 +1,6 @@
+using Godot;
+
+[GlobalClass]
 public partial class ForcedIdlePlayerState : PlayerState
 {
     public override void Enter()

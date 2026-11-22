@@ -2,25 +2,54 @@
 
 [ext_resource type="PackedScene" uid="uid://j0od3fxqhxyq" path="res://scenes/characters/character.tscn" id="1_nlber"]
 [ext_resource type="Script" uid="uid://c0eevpd6iqcss" path="res://scripts/characters/Trainer.cs" id="2_7ugo5"]
+[ext_resource type="Script" uid="uid://byig5p0cb4rbt" path="res://scripts/state_machine/states/trainer/SearchingForPlayerTrainerState.cs" id="3_hbt1t"]
+[ext_resource type="Script" uid="uid://c03n5rbyvvq81" path="res://scripts/state_machine/states/trainer/NoticedPlayerTrainerState.cs" id="4_cgdf2"]
+[ext_resource type="Script" uid="uid://dpmov8jl46h74" path="res://scripts/state_machine/states/trainer/WalkTowardsPlayerTrainerState.cs" id="5_eidrf"]
+[ext_resource type="Script" uid="uid://cv5o8p6c65q8d" path="res://scripts/state_machine/states/trainer/IdleTrainerState.cs" id="6_tr6vi"]
 
-[node name="Trainer" unique_id=1058294713 node_paths=PackedStringArray("WalkWaitTimer") instance=ExtResource("1_nlber")]
+[node name="Trainer" unique_id=1058294713 instance=ExtResource("1_nlber")]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("2_7ugo5")
-WalkWaitTimer = NodePath("Timers/WalkWaitTimer")
 
-[node name="Timers" type="Node" parent="." index="3" unique_id=1755921264]
+[node name="ViewRayCast" parent="." index="3" unique_id=1014297520]
+collision_mask = 2
 
-[node name="WatchTimer" type="Timer" parent="Timers" index="0" unique_id=1943656175]
+[node name="StateMachine" parent="." index="4" unique_id=1732587208 node_paths=PackedStringArray("StartingState")]
+StartingState = NodePath("SearchingForPlayerTrainerState")
+
+[node name="SearchingForPlayerTrainerState" type="Node" parent="StateMachine" index="0" unique_id=1722817800 node_paths=PackedStringArray("WatchTimer", "NoticedPlayerTrainerState", "Trainer")]
+script = ExtResource("3_hbt1t")
+WatchTimer = NodePath("WatchTimer")
+NoticedPlayerTrainerState = NodePath("../NoticedPlayerTrainerState")
+Trainer = NodePath("../..")
+metadata/_custom_type_script = "uid://byig5p0cb4rbt"
+
+[node name="WatchTimer" type="Timer" parent="StateMachine/SearchingForPlayerTrainerState" index="0" unique_id=1943656175]
 wait_time = 4.0
 autostart = true
 
-[node name="WalkWaitTimer" type="Timer" parent="Timers" index="1" unique_id=1140068204]
+[node name="NoticedPlayerTrainerState" type="Node" parent="StateMachine" index="1" unique_id=727935361 node_paths=PackedStringArray("WalkWaitTimer", "WalkTowardsPlayerTrainerState", "Trainer")]
+script = ExtResource("4_cgdf2")
+WalkWaitTimer = NodePath("WalkWaitTimer")
+WalkTowardsPlayerTrainerState = NodePath("../WalkTowardsPlayerTrainerState")
+Trainer = NodePath("../..")
+metadata/_custom_type_script = "uid://c03n5rbyvvq81"
+
+[node name="WalkWaitTimer" type="Timer" parent="StateMachine/NoticedPlayerTrainerState" index="0" unique_id=1140068204]
 wait_time = 0.5
 one_shot = true
 
-[node name="ViewRayCast" parent="." index="4" unique_id=1014297520]
-collision_mask = 2
+[node name="WalkTowardsPlayerTrainerState" type="Node" parent="StateMachine" index="2" unique_id=2015497393 node_paths=PackedStringArray("IdleTrainerState", "Trainer")]
+script = ExtResource("5_eidrf")
+IdleTrainerState = NodePath("../IdleTrainerState")
+Trainer = NodePath("../..")
+metadata/_custom_type_script = "uid://dpmov8jl46h74"
 
-[connection signal="timeout" from="Timers/WatchTimer" to="." method="OnWatchTimerTimeout"]
-[connection signal="timeout" from="Timers/WalkWaitTimer" to="." method="OnWalkWaitTimerTimeout"]
+[node name="IdleTrainerState" type="Node" parent="StateMachine" index="3" unique_id=1698444205 node_paths=PackedStringArray("Trainer")]
+script = ExtResource("6_tr6vi")
+Trainer = NodePath("../..")
+metadata/_custom_type_script = "uid://cv5o8p6c65q8d"
+
+[connection signal="timeout" from="StateMachine/SearchingForPlayerTrainerState/WatchTimer" to="StateMachine/SearchingForPlayerTrainerState" method="OnWatchTimerTimeout"]
+[connection signal="timeout" from="StateMachine/NoticedPlayerTrainerState/WalkWaitTimer" to="StateMachine/NoticedPlayerTrainerState" method="OnWalkWaitTimerTimeout"]

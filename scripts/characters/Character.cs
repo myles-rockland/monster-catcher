@@ -36,16 +36,10 @@ public partial class Character : CharacterBody2D
         StateMachine.PhysicsUpdate(delta);
     }
 
-    //protected void Move()
-    //{
-    //    Velocity = movingDirection * MoveSpeed;
-    //    MoveAndSlide();
-    //}
-
-    //protected Vector2I GetDirectionToCharacter(Character character)
-    //{
-    //    var directionFromMeToCharacter = (character.Position - Position).Normalized();
-    //    return new Vector2I(Mathf.RoundToInt(directionFromMeToCharacter.X), 
-    //        Mathf.RoundToInt(directionFromMeToCharacter.Y));
-    //}
+    public void UpdateAnimation(string animationBaseName)
+    {
+        var animationToPlay = animationBaseName + directionToString[facingDirection];
+        if (AnimationPlayer.CurrentAnimation != animationToPlay)
+            AnimationPlayer.Play(animationToPlay);
+    }
 }

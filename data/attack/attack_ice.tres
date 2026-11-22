@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://dl5vhuiqh3avc"]
 
-[ext_resource type="Resource" uid="uid://lpc17qf6hdxj" path="res://data/element/element_water.tres" id="1_5gsgo"]
+[ext_resource type="Resource" uid="uid://dcr60pybap3kk" path="res://data/element/element_water.tres" id="1_5gsgo"]
 [ext_resource type="Script" uid="uid://o50khsg63sy4" path="res://scripts/data/AttackData.cs" id="2_1dhro"]
 
 [resource]

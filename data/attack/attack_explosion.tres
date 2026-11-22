@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://dtdib35retxv0"]
 
-[ext_resource type="Resource" uid="uid://o6vvf08kauoo" path="res://data/element/element_fire.tres" id="1_juqqf"]
+[ext_resource type="Resource" uid="uid://cqtj5jn8g1xkc" path="res://data/element/element_fire.tres" id="1_juqqf"]
 [ext_resource type="Script" uid="uid://o50khsg63sy4" path="res://scripts/data/AttackData.cs" id="2_6epen"]
 
 [resource]

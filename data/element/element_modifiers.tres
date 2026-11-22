@@ -1,18 +1,13 @@
 [gd_resource type="Resource" script_class="ElementModifierData" format=3 uid="uid://cgxpiern2m43y"]
 
-[ext_resource type="Resource" uid="uid://c34ymk7dbrjk6" path="res://data/element/element_plant.tres" id="1_iyg3r"]
+[ext_resource type="Resource" uid="uid://bjan0clp5w7o1" path="res://data/element/element_plant.tres" id="1_iyg3r"]
 [ext_resource type="Script" uid="uid://lnmba8op5yox" path="res://scripts/data/ElementModifierData.cs" id="1_kohmr"]
-[ext_resource type="Resource" uid="uid://lpc17qf6hdxj" path="res://data/element/element_water.tres" id="2_qvflx"]
-[ext_resource type="Resource" uid="uid://o6vvf08kauoo" path="res://data/element/element_fire.tres" id="3_1yrfc"]
+[ext_resource type="Resource" uid="uid://dcr60pybap3kk" path="res://data/element/element_water.tres" id="2_qvflx"]
+[ext_resource type="Resource" uid="uid://cqtj5jn8g1xkc" path="res://data/element/element_fire.tres" id="3_1yrfc"]
 
 [resource]
 script = ExtResource("1_kohmr")
 ModifierAgainstElement = Dictionary[Object, float]({
-ExtResource("1_iyg3r"): {
-ExtResource("1_iyg3r"): 1.0,
-ExtResource("2_qvflx"): 2.0,
-ExtResource("3_1yrfc"): 0.5
-},
 ExtResource("3_1yrfc"): {
 ExtResource("3_1yrfc"): 1.0,
 ExtResource("2_qvflx"): 0.5,
@@ -22,6 +17,11 @@ ExtResource("2_qvflx"): {
 ExtResource("2_qvflx"): 1.0,
 ExtResource("3_1yrfc"): 2.0,
 ExtResource("1_iyg3r"): 0.5
+},
+ExtResource("1_iyg3r"): {
+ExtResource("1_iyg3r"): 1.0,
+ExtResource("3_1yrfc"): 0.5,
+ExtResource("2_qvflx"): 2.0
 }
 })
 metadata/_custom_type_script = "uid://lnmba8op5yox"

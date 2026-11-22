@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://b45e30lvhakt7" path="res://data/attack/attack_fire.tres" id="2_67pyu"]
 [ext_resource type="Resource" uid="uid://duv4osrpbfs5r" path="res://data/attack/attack_heal.tres" id="3_8kh6c"]
 [ext_resource type="Resource" uid="uid://dtdib35retxv0" path="res://data/attack/attack_explosion.tres" id="4_dlq18"]
-[ext_resource type="Resource" uid="uid://o6vvf08kauoo" path="res://data/element/element_fire.tres" id="5_p2obf"]
+[ext_resource type="Resource" uid="uid://cqtj5jn8g1xkc" path="res://data/element/element_fire.tres" id="5_p2obf"]
 [ext_resource type="Script" uid="uid://cexfd8ltm16i1" path="res://scripts/data/MonsterStats.cs" id="6_xlepl"]
 [ext_resource type="Script" uid="uid://cj1klsedu5df6" path="res://scripts/data/MonsterData.cs" id="7_th8le"]
 

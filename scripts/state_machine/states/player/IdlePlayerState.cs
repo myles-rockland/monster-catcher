@@ -8,9 +8,7 @@ public partial class IdlePlayerState : PlayerState
     public override void Enter()
     {
         base.Enter();
-
-        var animationToPlay = "idle_" + Player.directionToString[Player.facingDirection];
-        Player.AnimationPlayer.Play(animationToPlay);
+        Player.UpdateAnimation("idle_");
     }
 
     public override void Update(double delta)

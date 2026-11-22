@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cv1rsvcb3ydfm"]
+
+[ext_resource type="PackedScene" uid="uid://j0od3fxqhxyq" path="res://scenes/characters/character.tscn" id="1_nlber"]
+[ext_resource type="Script" uid="uid://c0eevpd6iqcss" path="res://scenes/characters/Trainer.cs" id="2_7ugo5"]
+
+[node name="Trainer" unique_id=1058294713 node_paths=PackedStringArray("WalkWaitTimer") instance=ExtResource("1_nlber")]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("2_7ugo5")
+WalkWaitTimer = NodePath("Timers/WalkWaitTimer")
+
+[node name="Timers" type="Node" parent="." index="3" unique_id=1755921264]
+
+[node name="WatchTimer" type="Timer" parent="Timers" index="0" unique_id=1943656175]
+wait_time = 4.0
+autostart = true
+
+[node name="WalkWaitTimer" type="Timer" parent="Timers" index="1" unique_id=1140068204]
+wait_time = 0.5
+one_shot = true
+
+[node name="ViewRayCast" parent="." index="4" unique_id=1014297520]
+collision_mask = 2
+
+[connection signal="timeout" from="Timers/WatchTimer" to="." method="OnWatchTimerTimeout"]
+[connection signal="timeout" from="Timers/WalkWaitTimer" to="." method="OnWalkWaitTimerTimeout"]

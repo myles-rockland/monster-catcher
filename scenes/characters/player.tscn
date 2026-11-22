@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dihipy7rljqkv"]
+
+[ext_resource type="PackedScene" uid="uid://j0od3fxqhxyq" path="res://scenes/characters/character.tscn" id="1_xwt18"]
+[ext_resource type="Script" uid="uid://tiaa6oy2i3fx" path="res://scripts/characters/Player.cs" id="2_y7cse"]
+[ext_resource type="Texture2D" uid="uid://d320vyp5pyo50" path="res://graphics/characters/player.png" id="4_7xbc7"]
+
+[node name="Player" unique_id=1058294713 instance=ExtResource("1_xwt18")]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("2_y7cse")
+ViewDistance = 20.0
+
+[node name="Sprite2D" parent="." index="0" unique_id=1510051939]
+texture = ExtResource("4_7xbc7")
+
+[node name="Camera2D" type="Camera2D" parent="." index="2" unique_id=1613719973]
+zoom = Vector2(3, 3)
+
+[node name="ViewRayCast" parent="." index="4" unique_id=1014297520]
+collision_mask = 4

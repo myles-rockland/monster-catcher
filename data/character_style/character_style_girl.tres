@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="CharacterStyleData" format=3 uid="uid://cb8byyq6y223d"]
-
-[ext_resource type="Script" uid="uid://ddqucnuln8qqk" path="res://scripts/data/CharacterStyleData.cs" id="1_ppvky"]
-
-[resource]
-script = ExtResource("1_ppvky")
-Texture = "uid://c17i8qbtcrlxd"
-metadata/_custom_type_script = "uid://ddqucnuln8qqk"

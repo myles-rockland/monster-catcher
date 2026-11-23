@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DialogueData" format=3 uid="uid://c5475ycvwaeg5"]
+
+[ext_resource type="Script" uid="uid://dovsk4aqloxuu" path="res://scripts/events/DialogueData.cs" id="1_bfc32"]
+
+[resource]
+script = ExtResource("1_bfc32")
+DialogueLines = PackedStringArray("This is my first dialogue!", "...and my second dialogue!", "And the ever-present third dialogue!")
+metadata/_custom_type_script = "uid://dovsk4aqloxuu"

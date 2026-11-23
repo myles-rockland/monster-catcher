@@ -42,4 +42,11 @@ public partial class Character : CharacterBody2D
         if (AnimationPlayer.CurrentAnimation != animationToPlay)
             AnimationPlayer.Play(animationToPlay);
     }
+
+    public Vector2I GetDirectionToCharacter(Character character)
+    {
+        var directionFromMeToCharacter = (character.Position - Position).Normalized();
+        return new Vector2I(Mathf.RoundToInt(directionFromMeToCharacter.X),
+            Mathf.RoundToInt(directionFromMeToCharacter.Y));
+    }
 }

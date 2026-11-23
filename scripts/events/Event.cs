@@ -2,25 +2,13 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
+[GlobalClass]
 public partial class Event : Resource
 {
-    public List<EventListener> EventListeners { get; set; }
+    [Signal] public delegate void EventInvokedEventHandler();
 
-}
-
-public partial class EventListener : Node
-{
-    [Export] public Event Event { get; set; }
-
-    public override void _EnterTree()
+    public void Invoke()
     {
-        
+        EmitSignalEventInvoked();
     }
-
-    public override void _ExitTree()
-    {
-        
-    }
-
-    public virtual void OnEventInvoked() { }
 }

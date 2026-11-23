@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://c0eevpd6iqcss" path="res://scripts/characters/Trainer.cs" id="2_7ugo5"]
 [ext_resource type="Script" uid="uid://byig5p0cb4rbt" path="res://scripts/state_machine/states/trainer/SearchingForPlayerTrainerState.cs" id="3_hbt1t"]
 [ext_resource type="Script" uid="uid://c03n5rbyvvq81" path="res://scripts/state_machine/states/trainer/NoticedPlayerTrainerState.cs" id="4_cgdf2"]
+[ext_resource type="Resource" uid="uid://dd7r0xtxlct3f" path="res://data/events/trainer_noticed_player.tres" id="5_cgdf2"]
 [ext_resource type="Script" uid="uid://dpmov8jl46h74" path="res://scripts/state_machine/states/trainer/WalkTowardsPlayerTrainerState.cs" id="5_eidrf"]
 [ext_resource type="Script" uid="uid://cv5o8p6c65q8d" path="res://scripts/state_machine/states/trainer/IdleTrainerState.cs" id="6_tr6vi"]
 
@@ -33,6 +34,7 @@ autostart = true
 script = ExtResource("4_cgdf2")
 WalkWaitTimer = NodePath("WalkWaitTimer")
 WalkTowardsPlayerTrainerState = NodePath("../WalkTowardsPlayerTrainerState")
+TrainerNoticedPlayerEvent = ExtResource("5_cgdf2")
 Trainer = NodePath("../..")
 metadata/_custom_type_script = "uid://c03n5rbyvvq81"
 

@@ -2,14 +2,18 @@
 
 [ext_resource type="PackedScene" uid="uid://j0od3fxqhxyq" path="res://scenes/characters/character.tscn" id="1_xwt18"]
 [ext_resource type="Script" uid="uid://tiaa6oy2i3fx" path="res://scripts/characters/Player.cs" id="2_y7cse"]
+[ext_resource type="Resource" uid="uid://dd7r0xtxlct3f" path="res://data/events/trainer_noticed_player.tres" id="3_6eyoc"]
 [ext_resource type="Texture2D" uid="uid://d320vyp5pyo50" path="res://graphics/characters/player.png" id="4_7xbc7"]
 [ext_resource type="Script" uid="uid://b05tvmuks3d4o" path="res://scripts/state_machine/states/player/IdlePlayerState.cs" id="4_dyp2m"]
 [ext_resource type="Script" uid="uid://bwtlvwudvq7u8" path="res://scripts/state_machine/states/player/MovementPlayerState.cs" id="5_atpat"]
+[ext_resource type="Script" uid="uid://deb7j6dpc7hop" path="res://scripts/state_machine/states/player/ForcedIdlePlayerState.cs" id="7_eojnx"]
 
-[node name="Player" unique_id=1058294713 instance=ExtResource("1_xwt18")]
+[node name="Player" unique_id=1058294713 node_paths=PackedStringArray("ForcedIdlePlayerState") instance=ExtResource("1_xwt18")]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("2_y7cse")
+TrainerNoticedPlayerEvent = ExtResource("3_6eyoc")
+ForcedIdlePlayerState = NodePath("StateMachine/ForcedIdle")
 ViewDistance = 20.0
 
 [node name="Camera2D" type="Camera2D" parent="." index="0" unique_id=1613719973]
@@ -33,3 +37,8 @@ Player = NodePath("../..")
 script = ExtResource("5_atpat")
 IdlePlayerState = NodePath("../Idle")
 Player = NodePath("../..")
+
+[node name="ForcedIdle" type="Node" parent="StateMachine" index="2" unique_id=334876009 node_paths=PackedStringArray("Player")]
+script = ExtResource("7_eojnx")
+Player = NodePath("../..")
+metadata/_custom_type_script = "uid://deb7j6dpc7hop"

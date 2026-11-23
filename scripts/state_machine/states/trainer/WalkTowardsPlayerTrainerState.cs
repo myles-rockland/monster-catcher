@@ -11,7 +11,7 @@ public partial class WalkTowardsPlayerTrainerState : TrainerState
     public override void Enter()
     {
         base.Enter();
-        Trainer.movingDirection = GetDirectionToPlayer();
+        Trainer.movingDirection = Trainer.GetDirectionToCharacter(Player);
         Trainer.Velocity = Trainer.movingDirection * Trainer.MoveSpeed;
         GD.Print($"WalkTowardsPlayer Enter: Direction is {Trainer.movingDirection}");
         Trainer.UpdateAnimation("walk_");
@@ -40,12 +40,5 @@ public partial class WalkTowardsPlayerTrainerState : TrainerState
     {
         base.PhysicsUpdate(delta);
         Trainer.MoveAndSlide();
-    }
-
-    private Vector2I GetDirectionToPlayer()
-    {
-        var directionFromMeToCharacter = (Player.Position - Trainer.Position).Normalized();
-        return new Vector2I(Mathf.RoundToInt(directionFromMeToCharacter.X),
-            Mathf.RoundToInt(directionFromMeToCharacter.Y));
     }
 }

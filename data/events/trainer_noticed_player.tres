@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="TrainerNoticedPlayerEvent" format=3 uid="uid://dd7r0xtxlct3f"]
+
+[ext_resource type="Script" uid="uid://mnknpn21c5al" path="res://scripts/events/TrainerNoticedPlayerEvent.cs" id="1_bugju"]
+
+[resource]
+script = ExtResource("1_bugju")
+metadata/_custom_type_script = "uid://mnknpn21c5al"

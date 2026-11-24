@@ -15,6 +15,20 @@ public partial class IdlePlayerState : PlayerState
     {
         base.Update(delta);
 
+        if (Input.IsActionJustPressed("action"))
+        {
+            if (Player.ViewRayCast.GetCollider() is IInteractable interactable)
+            {
+                if (interactable is Trainer trainer)
+                {
+                    trainer.Player = Player;
+                }
+                StateMachine.ChangeState(Player.ForcedIdlePlayerState);
+                interactable.Interact();
+                return;
+            }
+        }
+
         Player.movingDirection = Input.GetVector("left", "right", "up", "down");
 
         if (Player.movingDirection != Vector2.Zero)

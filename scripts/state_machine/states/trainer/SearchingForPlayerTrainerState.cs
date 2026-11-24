@@ -26,7 +26,7 @@ public partial class SearchingForPlayerTrainerState : TrainerState
         if (Trainer.ViewRayCast.GetCollider() is Player player && Trainer.characterLookingAtPlayer == null) // Second condition is currently used to stop this running twice... which won't ever happen
         {
             Trainer.characterLookingAtPlayer = Trainer;
-            NoticedPlayerTrainerState.Player = player;
+            Trainer.Player = player;
             StateMachine.ChangeState(NoticedPlayerTrainerState);
         }
     }

@@ -6,14 +6,11 @@ public partial class WalkTowardsPlayerTrainerState : TrainerState
     [Export] public float StopRadius { get; set; } = 24.0f;
     [Export] public IdleTrainerState IdleTrainerState { get; set; }
 
-    public Player Player { get; set; }
-
     public override void Enter()
     {
         base.Enter();
-        Trainer.movingDirection = Trainer.GetDirectionToCharacter(Player);
+        Trainer.movingDirection = Trainer.GetDirectionToCharacter(Trainer.Player);
         Trainer.Velocity = Trainer.movingDirection * Trainer.MoveSpeed;
-        GD.Print($"WalkTowardsPlayer Enter: Direction is {Trainer.movingDirection}");
         Trainer.UpdateAnimation("walk_");
     }
 
@@ -30,7 +27,7 @@ public partial class WalkTowardsPlayerTrainerState : TrainerState
 
         Trainer.UpdateAnimation("walk_");
 
-        if (Trainer.Position.DistanceSquaredTo(Player.Position) < StopRadius * StopRadius)
+        if (Trainer.Position.DistanceSquaredTo(Trainer.Player.Position) < StopRadius * StopRadius)
         {
             StateMachine.ChangeState(IdleTrainerState);
         }

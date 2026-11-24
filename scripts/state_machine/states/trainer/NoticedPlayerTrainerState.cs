@@ -7,14 +7,12 @@ public partial class NoticedPlayerTrainerState : TrainerState
     [Export] public WalkTowardsPlayerTrainerState WalkTowardsPlayerTrainerState { get; set; }
     [Export] public TrainerNoticedPlayerEvent TrainerNoticedPlayerEvent { get; set; }
 
-    public Player Player { get; set; }
-
     public override void Enter()
     {
         base.Enter();
         WalkWaitTimer.Start();
         Trainer.UpdateAnimation("idle_");
-        TrainerNoticedPlayerEvent.Invoke(Trainer, Player);
+        TrainerNoticedPlayerEvent.Invoke(Trainer, Trainer.Player);
     }
 
     public override void Exit()
@@ -25,7 +23,6 @@ public partial class NoticedPlayerTrainerState : TrainerState
 
     private void OnWalkWaitTimerTimeout()
     {
-        WalkTowardsPlayerTrainerState.Player = Player;
         StateMachine.ChangeState(WalkTowardsPlayerTrainerState);
     }
 }

@@ -5,6 +5,9 @@ public partial class MovementPlayerState : PlayerState
 {
     [Export] public IdlePlayerState IdlePlayerState { get; set; }
 
+    [Export] public TrainerNoticedPlayerEvent TrainerNoticedPlayerEvent { get; set; }
+    [Export] public DialogueIdlePlayerState DialogueIdlePlayerState { get; set; }
+
     public override void Enter()
     {
         base.Enter();
@@ -13,6 +16,19 @@ public partial class MovementPlayerState : PlayerState
         Player.Velocity = Player.movingDirection * Player.MoveSpeed;
         UpdateFacingDirection();
         Player.UpdateAnimation("walk_");
+        TrainerNoticedPlayerEvent.TrainerNoticedPlayer += OnTrainerNoticedPlayer;
+    }
+
+    public override void Exit()
+    {
+        TrainerNoticedPlayerEvent.TrainerNoticedPlayer -= OnTrainerNoticedPlayer;
+        base.Exit();
+    }
+
+    private void OnTrainerNoticedPlayer(Trainer trainer, Player player)
+    {
+        Player.facingDirection = Player.GetDirectionToCharacter(trainer);
+        player.StateMachine.ChangeState(DialogueIdlePlayerState);
     }
 
     public override void Update(double delta)
@@ -27,7 +43,7 @@ public partial class MovementPlayerState : PlayerState
                 {
                     trainer.Player = Player;
                 }
-                StateMachine.ChangeState(Player.ForcedIdlePlayerState);
+                StateMachine.ChangeState(DialogueIdlePlayerState);
                 interactable.Interact();
                 return;
             }

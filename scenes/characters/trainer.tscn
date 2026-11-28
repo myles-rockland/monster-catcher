@@ -3,19 +3,20 @@
 [ext_resource type="PackedScene" uid="uid://j0od3fxqhxyq" path="res://scenes/characters/character.tscn" id="1_nlber"]
 [ext_resource type="Script" uid="uid://c0eevpd6iqcss" path="res://scripts/characters/Trainer.cs" id="2_7ugo5"]
 [ext_resource type="Script" uid="uid://byig5p0cb4rbt" path="res://scripts/state_machine/states/trainer/SearchingForPlayerTrainerState.cs" id="3_hbt1t"]
+[ext_resource type="Resource" uid="uid://c5475ycvwaeg5" path="res://data/dialogue/meet_player_dialogue_data.tres" id="3_ql5gu"]
 [ext_resource type="Script" uid="uid://c03n5rbyvvq81" path="res://scripts/state_machine/states/trainer/NoticedPlayerTrainerState.cs" id="4_cgdf2"]
+[ext_resource type="Resource" uid="uid://urjoxifc5bht" path="res://data/dialogue/defeated_dialogue_data.tres" id="4_sqmii"]
 [ext_resource type="Resource" uid="uid://dd7r0xtxlct3f" path="res://data/events/trainer_noticed_player.tres" id="5_cgdf2"]
 [ext_resource type="Script" uid="uid://dpmov8jl46h74" path="res://scripts/state_machine/states/trainer/WalkTowardsPlayerTrainerState.cs" id="5_eidrf"]
+[ext_resource type="Resource" uid="uid://bamvuu5al35og" path="res://data/events/dialogue_end_event.tres" id="5_sqmii"]
 [ext_resource type="Script" uid="uid://cv5o8p6c65q8d" path="res://scripts/state_machine/states/trainer/IdleTrainerState.cs" id="6_tr6vi"]
 [ext_resource type="PackedScene" uid="uid://dbemtchye7jvk" path="res://scenes/characters/dialogue_box.tscn" id="8_eidrf"]
 [ext_resource type="Script" uid="uid://cwxq3wviq24j1" path="res://scripts/state_machine/states/trainer/DialogueIdleTrainerState.cs" id="8_tr6vi"]
 
-[node name="Trainer" unique_id=1058294713 node_paths=PackedStringArray("DialogueBox", "DialogueIdleTrainerState") instance=ExtResource("1_nlber")]
+[node name="Trainer" unique_id=1058294713 node_paths=PackedStringArray("DialogueIdleTrainerState") instance=ExtResource("1_nlber")]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("2_7ugo5")
-DialogueData = null
-DialogueBox = NodePath("DialogueBox")
 DialogueIdleTrainerState = NodePath("StateMachine/DialogueIdleTrainerState")
 
 [node name="ViewRayCast" parent="." index="3" unique_id=1014297520]
@@ -58,8 +59,13 @@ script = ExtResource("6_tr6vi")
 Trainer = NodePath("../..")
 metadata/_custom_type_script = "uid://cv5o8p6c65q8d"
 
-[node name="DialogueIdleTrainerState" type="Node" parent="StateMachine" index="4" unique_id=413457741 node_paths=PackedStringArray("Trainer")]
+[node name="DialogueIdleTrainerState" type="Node" parent="StateMachine" index="4" unique_id=413457741 node_paths=PackedStringArray("DialogueBox", "IdleTrainerState", "Trainer")]
 script = ExtResource("8_tr6vi")
+MeetPlayerDialogue = ExtResource("3_ql5gu")
+DefeatedDialogue = ExtResource("4_sqmii")
+DialogueBox = NodePath("../../DialogueBox")
+IdleTrainerState = NodePath("../IdleTrainerState")
+DialogueEndEvent = ExtResource("5_sqmii")
 Trainer = NodePath("../..")
 metadata/_custom_type_script = "uid://cwxq3wviq24j1"
 

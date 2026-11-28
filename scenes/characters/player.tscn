@@ -6,14 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://d320vyp5pyo50" path="res://graphics/characters/player.png" id="4_7xbc7"]
 [ext_resource type="Script" uid="uid://b05tvmuks3d4o" path="res://scripts/state_machine/states/player/IdlePlayerState.cs" id="4_dyp2m"]
 [ext_resource type="Script" uid="uid://bwtlvwudvq7u8" path="res://scripts/state_machine/states/player/MovementPlayerState.cs" id="5_atpat"]
-[ext_resource type="Script" uid="uid://deb7j6dpc7hop" path="res://scripts/state_machine/states/player/ForcedIdlePlayerState.cs" id="7_eojnx"]
+[ext_resource type="Script" uid="uid://cdwjkc5sf31u7" path="res://scripts/state_machine/states/player/DialogueIdlePlayerState.cs" id="7_eojnx"]
+[ext_resource type="Resource" uid="uid://bamvuu5al35og" path="res://data/events/dialogue_end_event.tres" id="8_qgnko"]
 
-[node name="Player" unique_id=1058294713 node_paths=PackedStringArray("ForcedIdlePlayerState") instance=ExtResource("1_xwt18")]
+[node name="Player" unique_id=1058294713 instance=ExtResource("1_xwt18")]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("2_y7cse")
-TrainerNoticedPlayerEvent = ExtResource("3_6eyoc")
-ForcedIdlePlayerState = NodePath("StateMachine/ForcedIdle")
 ViewDistance = 20.0
 
 [node name="Camera2D" type="Camera2D" parent="." index="0" unique_id=1613719973]
@@ -28,17 +27,23 @@ collision_mask = 4
 [node name="StateMachine" parent="." index="5" unique_id=1732587208 node_paths=PackedStringArray("StartingState")]
 StartingState = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="StateMachine" index="0" unique_id=1085064434 node_paths=PackedStringArray("MovementPlayerState", "Player")]
+[node name="Idle" type="Node" parent="StateMachine" index="0" unique_id=1085064434 node_paths=PackedStringArray("MovementPlayerState", "DialogueIdlePlayerState", "Player")]
 script = ExtResource("4_dyp2m")
 MovementPlayerState = NodePath("../Movement")
+TrainerNoticedPlayerEvent = ExtResource("3_6eyoc")
+DialogueIdlePlayerState = NodePath("../DialogueIdlePlayerState")
 Player = NodePath("../..")
 
-[node name="Movement" type="Node" parent="StateMachine" index="1" unique_id=134796865 node_paths=PackedStringArray("IdlePlayerState", "Player")]
+[node name="Movement" type="Node" parent="StateMachine" index="1" unique_id=134796865 node_paths=PackedStringArray("IdlePlayerState", "DialogueIdlePlayerState", "Player")]
 script = ExtResource("5_atpat")
 IdlePlayerState = NodePath("../Idle")
+TrainerNoticedPlayerEvent = ExtResource("3_6eyoc")
+DialogueIdlePlayerState = NodePath("../DialogueIdlePlayerState")
 Player = NodePath("../..")
 
-[node name="ForcedIdle" type="Node" parent="StateMachine" index="2" unique_id=334876009 node_paths=PackedStringArray("Player")]
+[node name="DialogueIdlePlayerState" type="Node" parent="StateMachine" index="2" unique_id=1343779616 node_paths=PackedStringArray("IdlePlayerState", "Player")]
 script = ExtResource("7_eojnx")
+DialogueEndEvent = ExtResource("8_qgnko")
+IdlePlayerState = NodePath("../Idle")
 Player = NodePath("../..")
-metadata/_custom_type_script = "uid://deb7j6dpc7hop"
+metadata/_custom_type_script = "uid://cdwjkc5sf31u7"

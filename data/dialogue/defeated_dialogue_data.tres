@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DialogueData" format=3 uid="uid://urjoxifc5bht"]
+
+[ext_resource type="Script" uid="uid://dovsk4aqloxuu" path="res://scripts/data/DialogueData.cs" id="1_gdrhj"]
+
+[resource]
+script = ExtResource("1_gdrhj")
+DialogueLines = PackedStringArray("Aww, you defeated me.", "Oh well, time for video games!")
+metadata/_custom_type_script = "uid://dovsk4aqloxuu"
